@@ -1,4 +1,5 @@
 <script lang="ts">
+	import '../../app.css';
 	import Calendar from 'js-year-calendar';
 	import 'js-year-calendar/dist/js-year-calendar.css';
 
@@ -25,9 +26,15 @@
 			});
 			console.log(calendar.getStartDate());
 		};
+
+		myCal.addEventListener('clickDay', function (e) {
+			alert('Click on day ' + e.date.toString());
+		});
 	});
+
+	let myCal;
 </script>
 
 <button on:click={handleClick}>Click me</button>
 
-<div class="calendar">Calendar</div>
+<div class="calendar" bind:this={myCal}>Calendar</div>
